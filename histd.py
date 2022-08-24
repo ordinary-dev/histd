@@ -17,15 +17,9 @@ def get_base_dir() -> str:
 
     Returns the path to the directory where data can be stored.
     """
-    local_dir = os.path.expanduser('~/.local')
-    if not os.path.exists(local_dir):
-        os.mkdir(local_dir)
-
-    histd_dir = os.path.join(local_dir, 'histd')
-    if not os.path.exists(histd_dir):
-        os.mkdir(histd_dir)
-
-    return histd_dir
+    base_dir = os.path.expanduser('~/.local/histd')
+    os.makedirs(base_dir, exist_ok=True)
+    return base_dir
 
 
 def edit_note(base_dir: str, note_date: date):
@@ -34,16 +28,14 @@ def edit_note(base_dir: str, note_date: date):
     so that the user can describe the day.
     """
     # Create dirs (base_dir/year/month)
-    year_dir = os.path.join(base_dir, str(note_date.year))
-    if not os.path.exists(year_dir):
-        os.mkdir(year_dir)
-
-    month_dir = os.path.join(year_dir, f'{note_date.month:02}')
-    if not os.path.exists(month_dir):
-        os.mkdir(month_dir)
+    year = str(note_date.year)
+    month = f'{note_date.month:02}'
+    workdir = os.path.join(base_dir, year, month)
+    os.makedirs(workdir, exist_ok=True)
 
     # Open file (base_dir/year/month/day.txt) with default editor
-    path_to_file = os.path.join(month_dir, f'{note_date.day:02}.txt')
+    filename = f'{note_date.day:02}.txt'
+    path_to_file = os.path.join(workdir, filename)
     editor = os.environ.get('EDITOR', 'nano')
     subprocess.run([editor, path_to_file])
 
