@@ -17,9 +17,11 @@ tree ~/.local/histd
 
 ## Usage
 ```sh
-./histd.py
-```
-or
-```sh
 python3 histd.py
+```
+
+## Installation
+To copy the script to `/usr/local/bin`, run this command as root:
+```sh
+make install
 ```
