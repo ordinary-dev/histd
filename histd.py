@@ -17,7 +17,7 @@ def get_base_dir() -> str:
 
     Returns the path to the directory where data can be stored.
     """
-    base_dir = os.path.expanduser('~/.local/histd')
+    base_dir = os.path.expanduser('~/.local/share/histd')
     os.makedirs(base_dir, exist_ok=True)
     return base_dir
 
