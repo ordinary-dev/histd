@@ -37,7 +37,7 @@ def edit_note(base_dir: str, note_date: date):
     filename = f'{note_date.day:02}.txt'
     path_to_file = os.path.join(workdir, filename)
     editor = os.environ.get('EDITOR', 'nano')
-    subprocess.run([editor, path_to_file])
+    subprocess.run([editor, path_to_file], check=True)
 
 
 if __name__ == '__main__':
