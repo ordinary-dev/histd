@@ -4,11 +4,11 @@ A simple but useful personal diary application.
 
 The sole purpose of this application is to quickly create a file
 and open it in a text editor so that I can take a note before I lose my desire.
-Notes can be found in the `~/.local/histd` directory.
+Notes can be found in the `~/.local/share/histd` directory.
 
 ```sh
-tree ~/.local/histd
-# /home/user/.local/histd
+tree ~/.local/share/histd
+# /home/user/.local/share/histd
 # └── 2022
 #     └── 08
 #         ├── 18.txt
