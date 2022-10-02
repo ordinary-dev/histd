@@ -11,8 +11,8 @@ tree ~/.local/share/histd
 # /home/user/.local/share/histd
 # └── 2022
 #     └── 08
-#         ├── 18.txt
-#         └── 19.txt
+#         ├── 18.md
+#         └── 19.md
 ```
 
 ## Usage

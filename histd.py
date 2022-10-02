@@ -33,8 +33,8 @@ def edit_note(base_dir: str, note_date: date):
     workdir = os.path.join(base_dir, year, month)
     os.makedirs(workdir, exist_ok=True)
 
-    # Open file (base_dir/year/month/day.txt) with default editor
-    filename = f'{note_date.day:02}.txt'
+    # Open file (base_dir/year/month/day.md) with default editor
+    filename = f'{note_date.day:02}.md'
     path_to_file = os.path.join(workdir, filename)
     editor = os.environ.get('EDITOR', 'nano')
     try:
