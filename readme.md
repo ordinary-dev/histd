@@ -21,10 +21,10 @@ python3 histd.py
 ```
 
 ## Installation
-To copy the script to `/usr/local/bin/histd`, run this command as root:
 ```sh
-make install
+sudo cp histd.py /usr/local/bin/histd
 ```
+To create a new note, you can simply type `histd` in the terminal.
 
 ## Backup
 To create an archive of all notes, run the following commands:
