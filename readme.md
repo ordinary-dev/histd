@@ -25,3 +25,16 @@ To copy the script to `/usr/local/bin`, run this command as root:
 ```sh
 make install
 ```
+
+## Backup
+To create an archive of all notes, run the following commands:
+```sh
+cd ~/.local/share
+tar -cJf histd.tar.xz histd
+```
+
+## Merge all notes
+This command concatenates all files and prefixes each with the creation date.
+```sh
+for f in ~/.local/share/histd/**/*.md; do echo $f | sed 's/^.*histd\//# /'; cat "${f}"; echo; done
+```
