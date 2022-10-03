@@ -21,7 +21,7 @@ python3 histd.py
 ```
 
 ## Installation
-To copy the script to `/usr/local/bin`, run this command as root:
+To copy the script to `/usr/local/bin/histd`, run this command as root:
 ```sh
 make install
 ```
