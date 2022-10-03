@@ -21,9 +21,16 @@ python3 histd.py
 ```
 
 ## Installation
+Recommended method
 ```sh
 sudo cp histd.py /usr/local/bin/histd
 ```
+
+Risky way (without cloning the repository)
+```sh
+sudo curl -o /usr/local/bin/histd "https://raw.githubusercontent.com/ordinary-dev/histd/master/histd.py"
+```
+
 To create a new note, you can simply type `histd` in the terminal.
 
 ## Backup
