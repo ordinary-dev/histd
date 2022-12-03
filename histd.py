@@ -2,12 +2,19 @@
 from datetime import date
 import os
 import subprocess
+import sys
 
 
 def main():
     base_dir = get_base_dir()
     today = date.today()
-    edit_note(base_dir, today)
+
+    if len(sys.argv) == 1:
+        edit_note(base_dir, today)
+    elif sys.argv[1] == "backup":
+        backup(base_dir, today)
+    else:
+        print('Command not found')
 
 
 def get_base_dir() -> str:
@@ -22,7 +29,7 @@ def get_base_dir() -> str:
     return base_dir
 
 
-def edit_note(base_dir: str, note_date: date):
+def edit_note(base_dir: str, note_date):
     """
     Creates the required directories and opens a text editor
     so that the user can describe the day.
@@ -44,6 +51,22 @@ def edit_note(base_dir: str, note_date: date):
         print("Make sure the 'EDITOR' environment variable is set correctly")
     except subprocess.CalledProcessError:
         print("Your editor returned non-zero exit code")
+
+
+def backup(base_dir: str, current_date):
+    """
+    Creates an archive with all notes
+    """
+    date_str = f'{current_date.year}-{current_date.month:02}-{current_date.day:02}'
+    archive_path = os.path.expanduser(f"~/histd-{date_str}.tar.xz")
+    cmd = ["tar", "cfJ", archive_path, "."]
+    try:
+        subprocess.run(cmd, check=True, cwd=base_dir)
+        print(f'Saved to {archive_path}')
+    except FileNotFoundError:
+        print("Error: I can't find tar program")
+    except subprocess.CalledProcessError:
+        print("Archiver returned non-zero exit code")
 
 
 if __name__ == '__main__':

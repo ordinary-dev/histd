@@ -34,10 +34,9 @@ sudo curl -o /usr/local/bin/histd "https://raw.githubusercontent.com/ordinary-de
 To create a new note, you can simply type `histd` in the terminal.
 
 ## Backup
-To create an archive of all notes, run the following commands:
-```sh
-cd ~/.local/share
-tar -cJf histd.tar.xz histd
+To create an archive of all notes, run the following command:
+```bash
+histd backup
 ```
 
 ## Merge all notes
