@@ -13,6 +13,8 @@ def main():
         edit_note(base_dir, today)
     elif sys.argv[1] == "backup":
         backup(base_dir, today)
+    elif sys.argv[1] == "merge":
+        merge(base_dir)
     else:
         print('Command not found')
 
@@ -67,6 +69,39 @@ def backup(base_dir: str, current_date):
         print("Error: I can't find tar program")
     except subprocess.CalledProcessError:
         print("Archiver returned non-zero exit code")
+
+
+def merge(base_dir: str):
+    """
+    This function concatenates all files and prefixes each with the filename.
+    The result will be printed to stdout.
+    """
+    
+    def read_files(path: str) -> str:
+        """
+        Recursive function to read all files in a directory
+        """
+        strings = []
+        contents = os.listdir(path)
+        
+        for entry in contents:
+            entry_path = os.path.join(path, entry)
+            
+            # It's a directory
+            if os.path.isdir(entry_path):
+                # Read all files in this directory
+                res = read_files(entry_path)
+                strings.append(res)
+            # It's a file
+            else:
+                with open(entry_path, 'r') as note:
+                    strings.append(f'## {entry_path}')
+                    strings.append(note.read())
+        
+        return '\n\n'.join(strings)
+
+    res = read_files(base_dir)
+    print(res)
 
 
 if __name__ == '__main__':

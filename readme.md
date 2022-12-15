@@ -40,7 +40,7 @@ histd backup
 ```
 
 ## Merge all notes
-This command concatenates all files and prefixes each with the creation date.
-```sh
-for f in ~/.local/share/histd/**/*.md; do echo $f | sed 's/^.*histd\//# /'; cat "${f}"; echo; done
+This command concatenates all files and prefixes each with the filename.
+```bash
+histd merge
 ```
