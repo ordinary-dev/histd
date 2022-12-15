@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+
+"""
+Histd: how I spent this day.
+A simple but useful personal diary CLI utility.
+"""
+
 from datetime import date
 import os
 import subprocess
@@ -6,6 +12,10 @@ import sys
 
 
 def main():
+    """
+    Main function, run first.
+    Prepares environment and parses commands.
+    """
     base_dir = get_base_dir()
     today = date.today()
 
@@ -76,17 +86,17 @@ def merge(base_dir: str):
     This function concatenates all files and prefixes each with the filename.
     The result will be printed to stdout.
     """
-    
+
     def read_files(path: str) -> str:
         """
         Recursive function to read all files in a directory
         """
         strings = []
         contents = os.listdir(path)
-        
+
         for entry in contents:
             entry_path = os.path.join(path, entry)
-            
+
             # It's a directory
             if os.path.isdir(entry_path):
                 # Read all files in this directory
@@ -94,10 +104,10 @@ def merge(base_dir: str):
                 strings.append(res)
             # It's a file
             else:
-                with open(entry_path, 'r') as note:
+                with open(entry_path, 'r', encoding='utf-8') as note:
                     strings.append(f'## {entry_path}')
                     strings.append(note.read())
-        
+
         return '\n\n'.join(strings)
 
     res = read_files(base_dir)
