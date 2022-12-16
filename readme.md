@@ -15,14 +15,14 @@ tree ~/.local/share/histd
 #         └── 19.md
 ```
 
-## Usage
-```bash
-python -m histd
-```
-
 ## Installation
 ```bash
 pip install histd
+```
+
+## Usage
+```bash
+python -m histd
 ```
 
 ## Backup
