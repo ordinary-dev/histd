@@ -19,6 +19,9 @@ classifiers = [
 "Homepage" = "https://github.com/ordinary-dev/histd"
 "Bug Tracker" = "https://github.com/ordinary-dev/histd/issues"
 
+[project.scripts]
+cli-name = "histd.cli:main"
+
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
