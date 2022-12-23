@@ -11,7 +11,7 @@ import subprocess
 import sys
 
 
-def main():
+def main() -> None:
     """
     Main function, run first.
     Prepares environment and parses commands.
@@ -41,7 +41,7 @@ def get_base_dir() -> str:
     return base_dir
 
 
-def edit_note(base_dir: str, note_date):
+def edit_note(base_dir: str, note_date: date) -> None:
     """
     Creates the required directories and opens a text editor
     so that the user can describe the day.
@@ -65,7 +65,7 @@ def edit_note(base_dir: str, note_date):
         print("Your editor returned non-zero exit code")
 
 
-def backup(base_dir: str, current_date):
+def backup(base_dir: str, current_date: date) -> None:
     """
     Creates an archive with all notes
     """
@@ -81,7 +81,7 @@ def backup(base_dir: str, current_date):
         print("Archiver returned non-zero exit code")
 
 
-def merge(base_dir: str):
+def merge(base_dir: str) -> None:
     """
     This function concatenates all files and prefixes each with the filename.
     The result will be printed to stdout.
