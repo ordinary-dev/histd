@@ -22,17 +22,17 @@ pip install histd
 
 ## Usage
 ```bash
-python -m histd
+histd
 ```
 
 ## Backup
 To create an archive of all notes, run the following command:
 ```bash
-python -m histd backup
+histd backup
 ```
 
 ## Merge all notes
 This command concatenates all files and prefixes each with the filename.
 ```bash
-python -m histd merge
+histd merge
 ```
