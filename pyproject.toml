@@ -1,6 +1,6 @@
 [project]
 name = "histd"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
     { name="Ivan Reshetnikov", email="ordinarydev@protonmail.com" },
 ]
@@ -20,7 +20,7 @@ classifiers = [
 "Bug Tracker" = "https://github.com/ordinary-dev/histd/issues"
 
 [project.scripts]
-cli-name = "histd.cli:main"
+histd = "histd.cli:main"
 
 [build-system]
 requires = ["setuptools"]
