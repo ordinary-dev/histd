@@ -13,5 +13,8 @@ jobs:
       with:
         python-version: "3.11"
 
+    - name: Install pylint
+      run: pip install pylint
+
     - name: Analysing the code with pylint
       run: pylint histd
